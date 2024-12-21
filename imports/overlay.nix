@@ -2,7 +2,7 @@
 
 {
   perSystem =
-    { config, system, ... }:
+    { system, ... }:
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
@@ -12,7 +12,5 @@
         ];
         config = { };
       };
-
-      overlayAttrs = config.packages;
     };
 }
