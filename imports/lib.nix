@@ -27,6 +27,7 @@
                 makeWrapper ${prev.lib.getExe prev.chromium} $out/bin/${finalAttrs.appName} \
                   --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode" \
                   --add-flags "--ozone-platform-hint=auto" \
+                  --add-flags "--profile-directory=${args.profile or "Default"}" \
                   --add-flags "--disable-sync-preferences" \
                   --add-flags "--user-data-dir=\$XDG_CONFIG_HOME/chromium-${finalAttrs.appName}" \
                   --add-flags "--app=${finalAttrs.url}"

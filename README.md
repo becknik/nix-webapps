@@ -26,9 +26,13 @@ Low-effort web "apps" with nix!
 
    ```nix
    environment.systemPackages = [
-     pkgs.nix-webapps.electron
      (pkgs.nix-webapps-lib.mkChromiumApp {
        appName = "teams";
+       categories = [
+         "Network"
+         "Chat"
+         "InstantMessaging"
+       ];
        desktopName = "Microsoft Teams";
        icon = ./Microsoft_Office_Teams.svg;
        url = "https://teams.microsoft.com";
