@@ -11,7 +11,7 @@
               pname = "chromium-app-${finalAttrs.appName}";
               version = "1.0.0";
 
-              buildInputs = [ prev.chromium ];
+              buildInputs = [ prev.ungoogled-chromium ];
 
               nativeBuildInputs = [
                 prev.makeShellWrapper
@@ -24,7 +24,7 @@
 
               installPhase = ''
                 runHook preInstall
-                makeWrapper ${prev.lib.getExe prev.chromium} $out/bin/${finalAttrs.appName} \
+                makeWrapper ${prev.lib.getExe prev.ungoogled-chromium} $out/bin/${finalAttrs.appName} \
                   --add-flags "--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode" \
                   --add-flags "--ozone-platform-hint=auto" \
                   --add-flags "--profile-directory=${args.profile or "Default"}" \
